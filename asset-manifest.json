@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/edvora-result/static/css/main.1bb134c1.css",
+    "main.js": "/edvora-result/static/js/main.2451f77e.js",
+    "index.html": "/edvora-result/index.html",
+    "main.1bb134c1.css.map": "/edvora-result/static/css/main.1bb134c1.css.map",
+    "main.2451f77e.js.map": "/edvora-result/static/js/main.2451f77e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1bb134c1.css",
+    "static/js/main.2451f77e.js"
+  ]
+}
