@@ -4,10 +4,10 @@ import SideNav from "./components/SideNav";
 import "./App.css";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
-import { faCaretDown} from '@fortawesome/free-solid-svg-icons';
+import { faCaretDown, faCaretUp} from '@fortawesome/free-solid-svg-icons';
 
 
-library.add(fab,   faCaretDown)
+library.add(fab,   faCaretDown, faCaretUp)
 
 function App() {
   const [store, setStore] = useState([]);

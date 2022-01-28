@@ -1154,6 +1154,12 @@ body {
 
 }
 
+.product-btn {
+  display: none;
+  min-width: 100px;
+}
+
+
 .company-name {
   color: #fff;
   font-size: 35px;
