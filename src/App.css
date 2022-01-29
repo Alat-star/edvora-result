@@ -1157,6 +1157,9 @@ body {
 .product-btn {
   display: none;
   min-width: 100px;
+  /* max-width: 100px; */
+  font-size: 15px;
+  text-align: left;
 }
 
 

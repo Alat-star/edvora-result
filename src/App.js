@@ -11,7 +11,8 @@ library.add(fab,   faCaretDown, faCaretUp)
 
 function App() {
   const [store, setStore] = useState([]);
-  const [compName, setName] = useState([]);
+  const [compFilter, setFilter] = useState([]);
+  const [compTag, setTag] = useState(false)
   // console.log(store.map(item => item.product_name))
   const allProducts = [];
   store.map((item) => {
@@ -38,12 +39,12 @@ function App() {
   return (
     <div className="parent-container">
       <div>
-        <SideNav allProducts={allProducts} store={store} />
+        <SideNav setTag={setTag} compFilter={compFilter} setFilter={setFilter} allProducts={allProducts} store={store} />
       </div>
       <div>
         <h1 className="company-name">Edvora</h1>
         <h2 className="product-title">Products</h2>
-        <Products allProducts={allProducts} store={store} />
+        <Products compTag={compTag} compFilter={compFilter} allProducts={allProducts} store={store} />
       </div>
     </div>
   );

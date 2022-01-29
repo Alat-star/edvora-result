@@ -3,6 +3,8 @@ import React from "react";
 
 function Products({ allProducts, store }) {
 
+  // const
+
   const productsBox = allProducts.map((item, index) => {
     return (
       <div key={index}>

@@ -1,42 +1,36 @@
 //INCOMPLETE FEATURES
 
-import React, {useRef, useEffect} from "react";
+import React, {useRef, useEffect, useState} from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-function SideNav({ store, allProducts }) {
+function SideNav({ store, allProducts, setFilter, compFilter, setTag }) {
+  const [caretToggle, setCaret] = useState(false)
+
 
   const productRef = useRef(null)
-  const caretUpRef = useRef(null)
-  const caretDownRef = useRef(null)
-
-  useEffect( () => {
-   const caretCtrl = () => {
-      caretUpRef.current.style.display = 'none';
-    }
-    caretCtrl()
-  }, [])
-
-
 
   const clickHandler = () => {
-  productRef.current.style.display = 'block';
-  caretUpRef.current.style.display = 'block';
-  caretDownRef.current.style.display = 'none';
+    productRef.current.style.display = 'block';
+    setCaret(!false)
   }
 
   const caretHandler = () => {
     productRef.current.style.display = 'none';
-    caretDownRef.current.style.display = 'block';
-    caretUpRef.current.style.display = 'none';
+    setCaret(false)
   }
 
-  const filter = (value) => {
-    
+  const filterComp = (value) => {
+   const companyName = store.filter(item => item === value)
+   console.log(compFilter)
+   setFilter([...companyName])
+   setTag(!false)
+   console.log(compFilter);
   }
+
   const productsBtn = allProducts.map((item) => {
 
     return(
-        <button className='product-btn' onClick={ () => {console.log(productRef.current)}} ref={productRef} >{item}</button>
+        <button className='product-btn' onClick={ () => {filterComp(productRef.current.innerHtml)}} ref={productRef} >{item}</button>
     )
   });
   // const stateBtn = "";
@@ -51,12 +45,12 @@ function SideNav({ store, allProducts }) {
         <div className='product-nav'>
           <button onClick={ () => {clickHandler()}}>
             Products
-            <span ref={caretDownRef} >
+            {!caretToggle && (<span>
               <FontAwesomeIcon size="lg" icon={["fas", "caret-down"]} />
-            </span>
-            <span onClick={caretHandler} className='caret-up' ref={caretUpRef} >
+            </span>)}
+            {caretToggle && (<span onClick={ () => caretHandler()} >
               <FontAwesomeIcon  size="lg" icon={["fas", "caret-up"]} />
-            </span>
+            </span>)}
           </button>
           <div>{productsBtn}</div>
         </div>
